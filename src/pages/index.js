@@ -19,7 +19,7 @@ const IndexPage = () => {
 
       resultRef.current.textContent = error;
     }
-    
+
     e.target[0].value = "";
 
     interval = setInterval(() => {
