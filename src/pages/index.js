@@ -1,26 +1,33 @@
-import * as uniux from "uniux"
-import * as math from "mathjs"
-import React, { useRef } from "react"
-import appConfig from "../components/appConfigs/index.js"
+import * as uniux from "uniux";
+import * as math from "mathjs";
+import React, { useRef } from "react";
+import appConfig from "../components/appConfigs/index.js";
 
 const IndexPage = () => {
-  const resultRef = useRef(null)
-  const meth = e => {
-    e.preventDefault()
+  let interval;
+  const resultRef = useRef(null);
+
+  const meth = (e) => {
+    e.preventDefault();
+    clearInterval(interval);
     try {
-      const result = math.evaluate(e.target[0].value)
-      console.log(result)
-      resultRef.current.textContent = result
+      const result = math.evaluate(e.target[0].value);
+
+      resultRef.current.textContent = result;
     } catch (error) {
-      console.log(error)
-      resultRef.current.textContent = error
+      console.log(error);
+
+      resultRef.current.textContent = error;
     }
-    e.target[0].value = ""
-  }
-  setInterval(() => {
-    resultRef.current.textContent =
-      "Click on The Button Above For Math Answers!"
-  }, 10000)
+    
+    e.target[0].value = "";
+
+    interval = setInterval(() => {
+      resultRef.current.textContent =
+        "Click on The Button Above For Math Answers!";
+    }, 10000);
+  };
+
   return (
     <uniux.Main
       pageType="columnedApp"
@@ -41,7 +48,7 @@ const IndexPage = () => {
         <h1 ref={resultRef}>Click on The Button Above For Math Answers!</h1>
       </div>
     </uniux.Main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
