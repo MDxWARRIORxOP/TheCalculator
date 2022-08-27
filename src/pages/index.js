@@ -1,12 +1,39 @@
 import * as uniux from "uniux";
 import * as math from "mathjs";
 import React, { useRef } from "react";
+import { useCookie } from "react-cookies";
 import appConfig from "../components/appConfigs/index.js";
+import { addData, getData } from "../utils/index.js";
+import * as styles from "../styles/index.module.css";
+import * as fs from "fs";
+import { nanoid } from "nanoid";
 
 const IndexPage = () => {
-  let interval;
+  const id = setID();
+  const data = getData("history", id);
   const resultRef = useRef(null);
 
+  const addHistory = (history) => {
+    console.log(history);
+    React.createElement("div", { class: styles.historyDiv }, [
+      React.createElement("h3", { class: styles.histroyHeading }, ""),
+      Raect.createElement("p", { class: styles.histroyPara }, ""),
+    ]);
+  };
+
+  const setID = () => {
+    const [cookies, setCookie] = useCookie(["main"]);
+
+    if (!cookies.ID) {
+      const id = nanoid();
+      setCookie("ID", id, { path: "/" });
+      return id;
+    }
+
+    return cookies.ID;
+  };
+
+  let interval;
   const meth = (e) => {
     e.preventDefault();
     clearInterval(interval);
@@ -27,6 +54,8 @@ const IndexPage = () => {
         "Click on The Button Above For Math Answers!";
     }, 10000);
   };
+  console.log(data);
+  // addHistory(data, id);
 
   return (
     <uniux.Main
