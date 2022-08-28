@@ -1,12 +1,12 @@
 import React from "react";
 import * as uniux from "uniux";
-import appConfig from "../components/appConfigs/index.js";
+import { appConfig } from "../components/appConfigs/index.js";
 import { getHistory } from "../utils/id";
 import { getId } from "../utils/id";
 
 const history = () => {
   const id = getId();
-  const data = getHistory();
+  const data = getHistory(id);
 
   return (
     <uniux.Main

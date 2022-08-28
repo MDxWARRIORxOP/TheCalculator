@@ -25,4 +25,4 @@ const appConfig = {
   },
 };
 
-export default appConfig;
+export { appConfig };
