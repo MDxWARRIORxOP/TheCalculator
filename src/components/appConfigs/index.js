@@ -9,7 +9,7 @@ const appConfig = {
   design: {
     themeColour: uniux.colourPacks.green.darker,
   },
-  sections: ["Calculator"],
+  sections: ["Calculator", "History"],
 
   pageConfigs: {
     calc: {
