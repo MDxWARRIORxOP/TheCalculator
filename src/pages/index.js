@@ -38,7 +38,9 @@ const IndexPage = () => {
     }
 
     e.target[0].value = "";
-    const data = getHistory();
+
+    const data = getHistory(id);
+
     let array = [];
     if (data.array.length == 0) {
       array.push({
@@ -64,8 +66,6 @@ const IndexPage = () => {
         "Click on The Button Above For Math Answers!";
     }, 10000);
   };
-  console.log(data);
-
 
   return (
     <uniux.Main

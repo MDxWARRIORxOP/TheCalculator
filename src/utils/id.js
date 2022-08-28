@@ -3,14 +3,16 @@ import { useCookies } from "react-cookie";
 import { getData } from ".";
 
 const getId = () => {
-  const id = nanoid(19);
-  const [cookies, setCookie] = useCookies(["ID"]);
-  if (cookies.ID) {
-    return cookies.ID;
-  }
+  const storedID = localStorage.getItem("ID");
 
-  setCookie("ID", id);
-  return id;
+  if (storedID) {
+    console.log(`ID: ${storedID}`);
+    return storedID;
+  } else {
+    const id = nanoid();
+    localStorage.setItem("ID", id);
+    return id;
+  }
 };
 
 const getHistory = (id) => {
