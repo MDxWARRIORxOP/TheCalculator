@@ -1,15 +1,17 @@
 import { nanoid } from "nanoid";
 import { getData } from ".";
+import createLocalStore from "react-local-storage-manager";
 
 const getId = () => {
-  const storedID = localStorage.getItem("ID");
+  const store = createLocalStore("ID", (value) => value.toString(), "");
+  const storedID = store.get();
 
   if (storedID) {
     console.log(`ID: ${storedID}`);
     return storedID;
   } else {
     const id = nanoid();
-    localStorage.setItem("ID", id);
+    store.set(id.toString());
     return id;
   }
 };
