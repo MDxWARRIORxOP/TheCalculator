@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import appConfig from "../components/appConfigs/index.js";
 import { addData, getData } from "../utils/index.js";
 import * as styles from "../styles/index.module.css";
-import * as fs from "fs";
 import { nanoid } from "nanoid";
 import { getId } from "../utils/id.js";
 import { getHistory } from "../utils/id.js";
