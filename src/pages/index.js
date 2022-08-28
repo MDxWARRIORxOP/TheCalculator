@@ -7,38 +7,28 @@ import { addData, getData } from "../utils/index.js";
 import * as styles from "../styles/index.module.css";
 import * as fs from "fs";
 import { nanoid } from "nanoid";
+import { getId } from "../utils/id.js";
+import { getHistory } from "../utils/id.js";
 
 const IndexPage = () => {
-  const id = setID();
-  const data = getData("history", id);
+  const id = getId();
   const resultRef = useRef(null);
 
-  const addHistory = (history) => {
-    console.log(history);
-    React.createElement("div", { class: styles.historyDiv }, [
-      React.createElement("h3", { class: styles.histroyHeading }, ""),
-      Raect.createElement("p", { class: styles.histroyPara }, ""),
-    ]);
-  };
-
-  const setID = () => {
-    const [cookies, setCookie] = useCookie(["main"]);
-
-    if (!cookies.ID) {
-      const id = nanoid();
-      setCookie("ID", id, { path: "/" });
-      return id;
-    }
-
-    return cookies.ID;
-  };
+  // const addHistory = (history) => {
+  //   console.log(history);
+  //   React.createElement("div", { class: styles.historyDiv }, [
+  //     React.createElement("h3", { class: styles.histroyHeading }, ""),
+  //     Raect.createElement("p", { class: styles.histroyPara }, ""),
+  //   ]);
+  // };
 
   let interval;
   const meth = (e) => {
     e.preventDefault();
     clearInterval(interval);
+    let result;
     try {
-      const result = math.evaluate(e.target[0].value);
+      result = math.evaluate(e.target[0].value);
 
       resultRef.current.textContent = result;
     } catch (error) {
@@ -48,6 +38,26 @@ const IndexPage = () => {
     }
 
     e.target[0].value = "";
+    const data = getHistory();
+    let array = [];
+    if (data.array.length == 0) {
+      array.push({
+        equation: e.target[0].value,
+        answer: result,
+      });
+    } else {
+      array = [
+        ...data.array,
+        {
+          equation: e.target[0].value,
+          answer: result,
+        },
+      ];
+    }
+
+    addData("history", id, {
+      array,
+    });
 
     interval = setInterval(() => {
       resultRef.current.textContent =
@@ -55,7 +65,7 @@ const IndexPage = () => {
     }, 10000);
   };
   console.log(data);
-  // addHistory(data, id);
+
 
   return (
     <uniux.Main

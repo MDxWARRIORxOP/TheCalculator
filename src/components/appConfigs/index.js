@@ -1,13 +1,13 @@
 // import * as React from "react"
 // import ReactDOM from "react-dom"
-import * as uniux from "uniux"
+import * as uniux from "uniux";
 
 const appConfig = {
   parentProject: { name: "TheCalculator" },
   name: "TheCalculator",
   rootURL: "",
   design: {
-    themeColour: uniux.colourPacks.green.darker
+    themeColour: uniux.colourPacks.green.darker,
   },
   sections: ["Calculator"],
 
@@ -15,9 +15,14 @@ const appConfig = {
     calc: {
       name: "Calculator",
       icon: uniux.icons.faCalculator,
-      url: ""
-    }
-  }
-}
+      url: "",
+    },
+    history: {
+      name: "History",
+      icon: uniux.icons.faClockRotateLeft,
+      url: "/history",
+    },
+  },
+};
 
-export default appConfig
+export default appConfig;
