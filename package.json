@@ -5,9 +5,13 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "dotenv": "^16.0.1",
+    "firebase": "^9.9.3",
     "gatsby": "^4.21.1",
     "mathjs": "11.1.0",
+    "nanoid": "^4.0.0",
     "react": "^18.1.0",
+    "react-cookies": "^0.1.1",
     "react-dom": "^18.1.0",
     "uniux": "3.9.6"
   },
