@@ -1,7 +1,6 @@
 import * as uniux from "uniux";
 import * as math from "mathjs";
 import React, { useRef } from "react";
-import { useCookie } from "react-cookies";
 import appConfig from "../components/appConfigs/index.js";
 import { addData, getData } from "../utils/index.js";
 import * as styles from "../styles/index.module.css";

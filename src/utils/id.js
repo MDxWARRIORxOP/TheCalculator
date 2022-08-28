@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import { useCookies } from "react-cookie";
 import { getData } from ".";
 
 const getId = () => {
