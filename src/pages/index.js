@@ -1,7 +1,7 @@
 import * as uniux from "uniux";
 import * as math from "mathjs";
 import React, { useRef } from "react";
-import {appConfig} from "../components/appConfigs/index.js";
+import { appConfig } from "../components/appConfigs/index.js";
 import { addData, getData } from "../utils/index.js";
 import * as styles from "../styles/index.module.css";
 import { nanoid } from "nanoid";

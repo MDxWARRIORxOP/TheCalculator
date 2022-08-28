@@ -19,7 +19,7 @@ const appConfig = {
     },
     history: {
       name: "History",
-      icon: uniux.icons.faArrow,
+      icon: uniux.icons.faHome,
       url: "/history",
     },
   },

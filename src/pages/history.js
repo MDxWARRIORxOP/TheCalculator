@@ -7,7 +7,7 @@ import { getId } from "../utils/id";
 const history = () => {
   const id = getId();
   const data = getHistory(id);
-
+appConfig
   return (
     <uniux.Main
       pageType="columnedApp"
