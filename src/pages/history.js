@@ -17,7 +17,6 @@ const history = () => {
       pageConfig={appConfig.pageConfigs.history}
     >
       <h1>History:</h1>
-      {getHistory()}
     </uniux.Main>
   );
 };
