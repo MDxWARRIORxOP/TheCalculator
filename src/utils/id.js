@@ -19,6 +19,8 @@ const getId = () => {
 const getHistory = (id) => {
   const data = getData("history", id);
 
+  if (!data) return false;
+
   return data;
 };
 

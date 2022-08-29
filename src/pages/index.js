@@ -30,7 +30,7 @@ const IndexPage = () => {
     e.target[0].value = "";
 
     const data = getHistory(id);
-
+    
     const array = [
       ...data.array,
       {
