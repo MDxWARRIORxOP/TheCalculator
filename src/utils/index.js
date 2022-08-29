@@ -39,7 +39,7 @@ const addData = async (collectionName, docName, dataObj) => {
 const getData = async (collectionName, docName) => {
   try {
     const docRef = firestore.doc(db, collectionName, docName);
-    const docSnap = await getDoc(docRef);
+    const docSnap = await firestore.getDoc(docRef);
 
     if (docSnap.exists()) {
       return docSnap.data();
