@@ -38,7 +38,7 @@ const addData = async (collectionName, docName, dataObj) => {
  **/
 const getData = async (collectionName, docName) => {
   try {
-    const docRef = firebase.doc(db, collectionName, docName);
+    const docRef = firstore.doc(db, collectionName, docName);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
