@@ -12,18 +12,10 @@ const IndexPage = () => {
   const id = getId();
   const resultRef = useRef(null);
 
-  // const addHistory = (history) => {
-  //   console.log(history);
-  //   React.createElement("div", { class: styles.historyDiv }, [
-  //     React.createElement("h3", { class: styles.histroyHeading }, ""),
-  //     Raect.createElement("p", { class: styles.histroyPara }, ""),
-  //   ]);
-  // };
-
-  let interval;
+  let Timeout;
   const meth = (e) => {
     e.preventDefault();
-    clearInterval(interval);
+    clearTimeout(Timeout);
     let result;
     try {
       result = math.evaluate(e.target[0].value);
@@ -39,27 +31,19 @@ const IndexPage = () => {
 
     const data = getHistory(id);
 
-    let array = [];
-    if (data.array.length == 0) {
-      array.push({
+    const array = [
+      ...data.array,
+      {
         equation: e.target[0].value,
-        answer: result,
-      });
-    } else {
-      array = [
-        ...data.array,
-        {
-          equation: e.target[0].value,
-          answer: result,
-        },
-      ];
-    }
+        result,
+      },
+    ];
 
     addData("history", id, {
       array,
     });
 
-    interval = setInterval(() => {
+    Timeout = setTimeout(() => {
       resultRef.current.textContent =
         "Click on The Button Above For Math Answers!";
     }, 10000);

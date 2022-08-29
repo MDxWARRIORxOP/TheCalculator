@@ -1,5 +1,5 @@
-import * as React from "react"
-import ReactDOM from "react-dom"
+import * as React from "react";
+import ReactDOM from "react-dom";
 import * as uniux from "uniux";
 
 const appConfig = {
@@ -17,7 +17,7 @@ const appConfig = {
       icon: uniux.icons.faCalculator,
       url: "",
     },
-    history: {
+    hist: {
       name: "History",
       icon: uniux.icons.faHome,
       url: "/history",

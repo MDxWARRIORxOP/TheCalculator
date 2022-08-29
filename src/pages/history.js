@@ -7,12 +7,12 @@ import { getId } from "../utils/id";
 const history = () => {
   const id = getId();
   const data = getHistory(id);
-appConfig
+  appConfig;
   return (
     <uniux.Main
       pageType="columnedApp"
       appConfig={appConfig}
-      pageConfig={appConfig.pageConfigs.history}
+      page={appConfig.pageConfigs.hist}
     >
       <h1>History:</h1>
       <h3>1 + 1 / 5 * 50</h3>
